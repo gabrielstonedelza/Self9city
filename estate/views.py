@@ -151,13 +151,13 @@ def admin_listing_detail(request, slug):
             phone = form.cleaned_data.get('phone')
             message = form.cleaned_data.get('message')
 
-            ContactUs.objects.create(full_name=fname, email=email, phone=phone, message=message)
+            ContactUs.objects.create(listing=listing, full_name=fname, email=email, phone=phone, message=message)
             messages.success(request, f"Thank you,we will get back to you soon.")
-            send_my_mail(f"Hi from Safe9 City", settings.EMAIL_HOST_USER, email, {"name": fname},
-                         "email_templates/success.html")
-            send_my_mail(f"New Message", settings.EMAIL_HOST_USER, settings.EMAIL_HOST_USER,
-                         {"name": fname, "email": email, "message": message},
-                         "email_templates/contact_success.html")
+            # send_my_mail(f"Hi from Safe9 City", settings.EMAIL_HOST_USER, email, {"name": fname},
+            #              "email_templates/success.html")
+            # send_my_mail(f"New Message", settings.EMAIL_HOST_USER, settings.EMAIL_HOST_USER,
+            #              {"name": fname, "email": email, "message": message},
+            #              "email_templates/contact_success.html")
             return redirect('listing_detail', listing.slug)
     else:
         form = ContactForm()
