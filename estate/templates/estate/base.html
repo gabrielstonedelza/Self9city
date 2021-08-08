@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" href="{% static 'estate/images/self-9.ico' %}" type="image/x-icon">
+  <link rel="stylesheet" href="{% static 'estate/css/bootstrap.min.css'%}" type="text/css">
+  <link rel="stylesheet" href="{% static 'estate/css/mdb.min.css'%}" type="text/css">
+  <link rel="stylesheet" href="{% static 'estate/css/all.min.css'%}" type="text/css">
+  <link rel="stylesheet" href="{% static 'estate/css/animate.css'%}" type="text/css">
+  <link rel="stylesheet" href="{% static 'estate/css/navigation.css'%}" type="text/css">
+  <link rel="stylesheet" href="{% static 'estate/css/index.css'%}" type="text/css">
+  <link rel="stylesheet" href="{% static 'estate/css/about.css'%}" type="text/css">
+  <link rel="stylesheet" href="{% static 'estate/css/login_register.css'%}" type="text/css">
+  <link rel="stylesheet" href="{% static 'estate/css/lightbox.min.css'%}" type="text/css">
+  <title>
+    {% block title %}  {% endblock %}
+  </title>
+</head>
+<body>
+{% include "estate/navbar.html" %}
+
+<div class="container">
+  <div class="row text-center">
+    <div class="col-xs-6 col-sm-6 col-md-6 ml-auto mr-auto">
+      {% if message %}
+        <div class="animated bounce alert alert-{{ message.tags }}" style="font-weight: bold; padding: 20px;">
+          {{ message }}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% block content %}
+
+{% endblock %}
+<script src="{% static 'estate/js/jquery-3.4.1.min.js'%}"></script>
+<script src="{% static 'estate/js/bootstrap.min.js'%}"></script>
+<script src="{% static 'estate/js/mdb.min.js'%}"></script>
+<script src="{% static 'estate/js/popper.min.js'%}"></script>
+<script src="{% static 'estate/js/ajax.js'%}"></script>
+<script src="{% static 'estate/js/jscode.js'%}"></script>
+<script src="{% static 'estate/js/all.min.js'%}"></script>
+<script src="{% static 'estate/js/lightbox-plus-jquery.min.js'%}"></script>
+</body>
+</html>

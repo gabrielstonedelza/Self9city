@@ -1,0 +1,45 @@
+{% load static %}
+
+<div class="navigationcontainer" id="navigationcontainer">
+    <div class="navigationitems">
+        <div class="logotitle">
+            <img alt="" src="{% static 'estate/images/self-9.png' %}">
+            <h2>
+                Self<span class='nine'>9</span>
+                <span class='city'>CITY</span>
+            </h2>
+        </div>
+        <div class="othermenu">
+            <ul>
+                <li>
+                    <a title="Search"  href="#" data-toggle="modal" data-target="#basicExampleModal" id="search-button-container"><i class="fas fa-search"></i></a>
+                </li>
+                <li><a href="{% url 'index' %}">Home</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">
+            <form method="GET" class="form-inline my-2 my-lg-0 ml-auto mr-auto" data-url="" id="search-form">
+            {% csrf_token %}
+            <input id="mysearch" class="form-control" type="search" placeholder="Search for homes" aria-label="Search"
+              name="q">
+          </form>
+          </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div id="results_section">
+            {% include "estate/search.html" %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

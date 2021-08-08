@@ -1,0 +1,9 @@
+{% if all_listings %}
+<ul id="search-results">
+    {% for listing in all_listings %}
+        <li class="" >
+            <a class="mt-1" href="{{ listing.get_absolute_url }}">{{ listing.full_location }}</a>
+        </li>
+    {% endfor %}
+</ul>
+{% endif %}

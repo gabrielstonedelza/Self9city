@@ -1,0 +1,228 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+  line-height: 1.5;
+}
+
+.butt {
+  cursor: pointer;
+  background-image: -webkit-gradient(linear, left top, right top, from(#f57803), to(#f5d020));
+  background-image: linear-gradient(to right, #f57803, #f5d020);
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 24px;
+  border: none;
+  outline: none;
+}
+
+.butt:hover {
+  background-image: -webkit-gradient(linear, left top, right top, from(#f5d020), to(#f57803));
+  background-image: linear-gradient(to right, #f5d020, #f57803);
+  color: white;
+}
+
+.butt:focus {
+  border: none;
+  outline: none;
+}
+
+.buycontainer {
+  width: 100%;
+  height: 100vh;
+}
+
+.buycontainer .buyback {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  background-image: url("../images/beautiful.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: -1;
+}
+
+.buycontainer .buyoverlay {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.247);
+  z-index: 2;
+}
+
+.buycontainer .buyitems {
+  position: relative;
+  z-index: 3;
+  padding-top: 170px;
+  color: white;
+  text-align: center;
+}
+
+.buycontainer .buyitems h2 {
+  font-weight: bold;
+  font-size: 50px;
+}
+
+.buycontainer .buyitems form {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.buycontainer .buyitems form input {
+  height: 50px;
+  padding: 10px;
+  outline: none;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border: none;
+  text-transform: capitalize;
+}
+
+.buycontainer .buyitems form button {
+  background-image: -webkit-gradient(linear, left top, right top, from(#f57803), to(#f5d020));
+  background-image: linear-gradient(to right, #f57803, #f5d020);
+  padding-top: 13px;
+  padding-right: 13px;
+  padding-bottom: 13px;
+  padding-left: 13px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.buycontainer .buyitems form button:hover {
+  background-image: -webkit-gradient(linear, left top, right top, from(#f5d020), to(#f57803));
+  background-image: linear-gradient(to right, #f5d020, #f57803);
+  color: white;
+}
+
+.estate-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1.5rem;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.estate-box .listingbox {
+  position: relative;
+  -webkit-box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 100px 80px rgba(0, 0, 0, 0.12);
+          box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 100px 80px rgba(0, 0, 0, 0.12);
+  height: 250px;
+  width: 300px;
+  border-radius: 5px;
+}
+
+.estate-box .listingbox .showcase-back {
+  position: relative;
+  width: 100%;
+  height: 200px;
+}
+
+.estate-box .listingbox .showcase-back .overlay {
+  width: 100%;
+  height: 200px;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.247);
+  z-index: 2;
+}
+
+.estate-box .listingbox .on-overlay {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1rem;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.estate-box .listingbox .on-overlay .for-price {
+  top: 130px;
+  position: absolute;
+  z-index: 3;
+  font-weight: bold;
+  color: white;
+  font-size: 22px;
+  padding: 20px;
+}
+
+.estate-box .listingbox .on-overlay .for-views {
+  top: 130px;
+  left: 200px;
+  position: absolute;
+  z-index: 3;
+  font-weight: bold;
+  color: white;
+  font-size: 22px;
+  padding: 20px;
+}
+
+.estate-box .listingbox .for-tag {
+  top: 8px;
+  left: 5px;
+  position: absolute;
+  z-index: 3;
+  font-weight: bold;
+  color: white;
+  font-size: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  background-color: rgba(0, 162, 255, 0.911);
+  border-radius: 5px;
+}
+
+.estate-box .listingbox .roombath {
+  padding: 10px;
+  background: #e0dfdf;
+  color: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1rem;
+  font-weight: bold;
+}
+
+@media (min-width: 500px) {
+  .buyitems {
+    padding-top: 300px;
+    color: white;
+    text-align: center;
+  }
+  .buyitems h2 {
+    font-weight: bold;
+    font-size: 10px;
+  }
+  .buyitems p {
+    padding: 10px;
+    font-size: 25px;
+    font-weight: bold;
+  }
+}
+/*# sourceMappingURL=index.css.map */

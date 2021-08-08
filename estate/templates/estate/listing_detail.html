@@ -1,0 +1,77 @@
+{% extends "estate/otherbase.html"%}
+{% load humanize %}
+{% block title %}
+{{ listing.location }}
+{% endblock %}
+{% load crispy_forms_tags %}
+{% block content %}
+<br>
+<br><br>
+<br><br>
+<br>
+<div class="container listing_detail">
+    <h3 class="">{{ listing.full_location|slice:"28" }}</h3>
+    <div class="image-contact">
+        <div class="for-main-image">
+            <a class="z-depth-1-half" data-lightbox="gallery" data-title="{{ image.listing.full_location }}"
+               href="{{ listing.photo.url }}">
+                <img  class="z-depth-1-half" src="{{ listing.photo.url }}">
+            </a>
+<!--            <img alt="" src="{{ listing.photo.url }}">-->
+        </div>
+        <div class="contact-form">
+            <h5>Contact for more information</h5>
+            <form method="post">
+                {% csrf_token %}
+                <div class="form-control">
+                    {{ form|crispy }}
+                </div>
+                <br>
+                    <button id="contact-butt" type="submit">Send</button>
+                <br>
+                <small class="text-muted">By proceeding, you consent to receive calls and texts at the number and email  you provided.Please make sure all the information provided are valid. </small>
+            </form>
+        </div>
+    </div>
+    <br>
+    <div class="detail-details">
+        <div>
+            <span class="price">{{ listing.price }}</span> <span> <i class="fas fa-calculator"></i> EST.Payment  $1,260 / month</span><br>
+            <span>{{ listing.rooms}} rooms</span> <span>{{ listing.baths }} bath</span>
+            <span>{{ listing.size_of_building }}</span><br>
+            <span>{{ listing.full_location }}</span>
+        </div>
+        <iframe
+                width="300"
+                height="150"
+                id="gmap_canvas"
+                src="https://maps.google.com/maps?q={{ listing.full_location}}&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                frameborder="0"
+                scrolling="no"
+                marginheight="0"
+                marginwidth="0"
+        ></iframe>
+        <hr>
+    </div>
+    <br>
+    <div class="listing-description">
+        <h5>Listing Description</h5>
+        <p>{{ listing.description }}</p>
+    </div>
+    <hr>
+    <br>
+    <h3>Other images for {{ listing.full_location }}</h3>
+    <div class="other-images">
+        {% for image in listing_gallery %}
+            <a class="z-depth-1-half" data-lightbox="gallery" data-title="{{ image.listing.full_location }}"
+               href="{{ image.images.url }}">
+                <img alt="{{ g.image_caption }}" class="z-depth-1-half" src="{{ image.images.url }}">
+            </a>
+        {% empty %}
+        <p>Sorry, there are no more pictures for this listing</p>
+        {% endfor %}
+    </div>
+    <br>
+</div>
+<br>
+{% endblock content%}
