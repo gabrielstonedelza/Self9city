@@ -35,7 +35,7 @@ class Listings(models.Model):
 
     def get_listing_image(self):
         if self.photo:
-            return "http://127.0.0.1:8000" + self.photo.url
+            return "http://64.227.22.163/" + self.photo.url
         return ''
 
     def save(self, *args, **kwargs):
@@ -54,7 +54,7 @@ class ListingGallery(models.Model):
 
     def get_listings_image(self):
         if self.images:
-            return "http://127.0.0.1:8000" + self.images.url
+            return "http://64.227.22.163/" + self.images.url
         return ''
 
 

@@ -1,0 +1,207 @@
+a.butt {
+  position: relative;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 5px;
+  background: #0c4b33;
+  border-radius: 5px;
+  -webkit-transition: 0.5s ease-in;
+  transition: 0.5s ease-in;
+}
+
+a.butt:hover {
+  background: #c9f0dd;
+  color: #000;
+}
+
+a.delete {
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  background: #ff0000;
+  border-radius: 5px;
+  -webkit-transition: 0.5s ease-in;
+  transition: 0.5s ease-in;
+}
+
+a.delete:hover {
+  background: #dd1515;
+}
+
+button.butt {
+  position: relative;
+  border: none;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 5px;
+  background: #0c4b33;
+  border-radius: 5px;
+  -webkit-transition: 0.5s ease-in;
+  transition: 0.5s ease-in;
+}
+
+button.butt:hover {
+  background: #c9f0dd;
+  color: #000;
+}
+
+.nav {
+  background-color: #2222227a;
+  border: 1px solid #000;
+  border-left: none;
+  border-right: none;
+  color: white;
+  position: fixed;
+  z-index: 4;
+  width: 100%;
+}
+
+.nav ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  list-style-type: none;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.nav ul li.logo {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.nav ul li.logo .logotitle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.nav ul .mybars {
+  font-size: 30px;
+  margin-right: 10px;
+  display: none;
+  cursor: pointer;
+}
+
+.nav ul .notactive .navitems {
+  padding: 0 25px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.nav ul .notactive .navitems .cancelbtn {
+  cursor: pointer;
+  position: absolute;
+  right: 30px;
+  top: 10px;
+  display: none;
+}
+
+.nav ul .notactive .navitems li {
+  font-size: 18px;
+  padding: 0 12px;
+  font-weight: bold;
+}
+
+.nav ul .items {
+  padding: 0 25px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.nav ul .items .cancelbtn {
+  cursor: pointer;
+  position: absolute;
+  right: 30px;
+  top: 10px;
+  display: none;
+}
+
+.nav ul .items li {
+  font-size: 18px;
+  padding: 0 12px;
+  font-weight: bold;
+}
+
+.nav ul li.search input {
+  height: 40px;
+  width: 300px;
+  border: none;
+  border-radius: 5px;
+  padding: 0 10px;
+  outline: none;
+  font-size: 16px;
+}
+
+@media screen and (max-width: 820px) {
+  .nav {
+    padding: 10px 40px 10px 0px;
+  }
+  .nav .logo {
+    display: none;
+  }
+  .nav .mybars {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    display: block;
+  }
+  .nav .items {
+    -webkit-box-flex: 4;
+        -ms-flex: 4;
+            flex: 4;
+  }
+}
+
+@media (max-width: 668px) {
+  .nav ul .mybars {
+    display: block;
+  }
+  .nav ul .notactive {
+    display: none;
+  }
+  .nav ul .items {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #222222;
+    height: 100vh;
+    width: 100%;
+    max-width: 400px;
+    display: block;
+    padding: 40px 0;
+    text-align: center;
+  }
+  .nav ul .items .cancelbtn {
+    display: block;
+    cursor: pointer;
+    position: absolute;
+    right: 30px;
+    top: 10px;
+  }
+  .nav ul .items li {
+    margin-top: 40px;
+    font-size: 24px;
+  }
+}
+/*# sourceMappingURL=Navigation.module.css.map */

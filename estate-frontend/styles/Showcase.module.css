@@ -1,0 +1,62 @@
+.showcase {
+  width: 100%;
+  height: 100vh;
+}
+
+.showcase .showcaseback {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  background: url("../public/images/beautiful.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  z-index: 1;
+}
+
+.showcase .showcaseoverlay {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.438);
+  z-index: 2;
+}
+
+.showcase .showcasecontents {
+  position: relative;
+  z-index: 3;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  padding-top: 200px;
+  color: white;
+}
+
+.showcase .showcasecontents h2 {
+  font-weight: bold;
+  font-size: 40px;
+  padding-left: 5px;
+}
+
+.showcase .showcasecontents p {
+  font-size: 20px;
+}
+
+@media (max-width: 700px) {
+  .showcasecontents h2 {
+    font-size: 10px;
+  }
+}
+/*# sourceMappingURL=Showcase.module.css.map */

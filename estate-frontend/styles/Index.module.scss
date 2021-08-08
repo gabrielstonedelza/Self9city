@@ -1,0 +1,170 @@
+@import "./variables";
+
+.mainphotoothers {
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+
+  .mainphoto {
+    box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+      0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+      0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+      0 100px 80px rgba(0, 0, 0, 0.12);
+  }
+  .otherimages {
+    cursor: pointer;
+    .listinggallerycontainer {
+      display: flex;
+      gap: 1rem;
+    }
+  }
+}
+
+// details
+.details {
+  padding: 20px;
+  .price {
+    display: flex;
+    gap: 1rem;
+    // justify-content: center;
+    align-items: center;
+  }
+  .otherdetails {
+    font-weight: bold;
+    font-size: 15px;
+  }
+  .description {
+    h3 {
+      font-weight: bold;
+      font-size: 20px;
+    }
+    p {
+      font-size: 15px;
+    }
+  }
+}
+
+// form and map
+.formmap {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  //   justify-content: center;
+  padding: 20px;
+  .myform {
+    // width: 100%;
+    flex: 1;
+    h3 {
+      font-size: 20px;
+    }
+    form {
+      border: solid 2px silver;
+      padding: 10px;
+      border-radius: 5px;
+      .formcontrol {
+        display: flex;
+        flex-direction: column;
+        label {
+          font-weight: bold;
+          font-size: 15px;
+          padding-bottom: 10px;
+        }
+        input {
+          border: none;
+          outline: none;
+          height: 40px;
+          margin-bottom: 5px;
+          padding: 10px;
+          border-radius: 10px;
+        }
+        button {
+          background-image: linear-gradient(to right, #f57803, #f5d020);
+          text-decoration: none;
+          font-weight: bold;
+          color: white;
+          height: 30px;
+          padding-left: 20px;
+          padding-right: 20px;
+          padding-top: 5px;
+          padding-bottom: 5px;
+          border-radius: 24px;
+          border: none;
+          outline: none;
+          &:hover {
+            background-image: linear-gradient(to right, #f5d020, #f57803);
+            color: white;
+          }
+        }
+      }
+    }
+  }
+  .iframe {
+      flex: 1;
+    iframe {
+      width: 600px;
+      height: 400px;
+      border: none;
+    }
+  }
+}
+.listingcontainer {
+  padding: 5px;
+
+  .listingbox {
+    width: 300px;
+    height: auto;
+    position: relative;
+    .views {
+      position: absolute;
+      top: 160px;
+      left: 20px;
+      color: white;
+      font-weight: bold;
+      font-size: 20px;
+      .eye {
+        margin-top: 10px;
+        font-size: 20px;
+        color: white;
+      }
+    }
+    .listingdetails {
+      box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+        0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+        0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+        0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 100px 80px rgba(0, 0, 0, 0.12);
+      //   border: solid 2px white;
+      padding: 5px;
+      .listingtype {
+        font-weight: bold;
+        font-size: 15px;
+      }
+      .otherdetails {
+        display: flex;
+        gap: 1rem;
+      }
+      .fulllocation {
+        font-weight: bold;
+        font-size: 15px;
+      }
+    }
+  }
+}
+
+.mainlisting {
+  cursor: pointer;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+  // justify-content: center;
+}
+h3.hometitle{
+  padding: 20px;
+  font-size: 20px;
+}
+
+@media (max-width:700px){
+  .mainlisting{
+    justify-content: center;
+  }
+}

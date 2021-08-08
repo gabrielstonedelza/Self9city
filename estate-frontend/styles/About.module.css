@@ -1,0 +1,195 @@
+a.butt {
+  position: relative;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 5px;
+  background: #0c4b33;
+  border-radius: 5px;
+  -webkit-transition: 0.5s ease-in;
+  transition: 0.5s ease-in;
+}
+
+a.butt:hover {
+  background: #c9f0dd;
+  color: #000;
+}
+
+a.delete {
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  background: #ff0000;
+  border-radius: 5px;
+  -webkit-transition: 0.5s ease-in;
+  transition: 0.5s ease-in;
+}
+
+a.delete:hover {
+  background: #dd1515;
+}
+
+button.butt {
+  position: relative;
+  border: none;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 5px;
+  background: #0c4b33;
+  border-radius: 5px;
+  -webkit-transition: 0.5s ease-in;
+  transition: 0.5s ease-in;
+}
+
+button.butt:hover {
+  background: #c9f0dd;
+  color: #000;
+}
+
+.videocontainer {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.videocontainer .video {
+  width: 100% !important;
+  height: auto !important;
+}
+
+.contactdetails {
+  padding: 20px;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1rem;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.contactdetails .icon {
+  margin-left: 40px;
+}
+
+.socialmedia {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1rem;
+  font-size: 25px;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  padding: 20px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.aboutmain {
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1rem;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.aboutmain .forcontact {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.aboutmain .forcontact h3 {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.aboutmain .forcontact form {
+  border: solid 2px silver;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.aboutmain .forcontact form .formcontrol {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.aboutmain .forcontact form .formcontrol label {
+  font-weight: bold;
+  font-size: 15px;
+  padding-bottom: 10px;
+}
+
+.aboutmain .forcontact form .formcontrol input {
+  border: none;
+  outline: none;
+  height: 40px;
+  margin-bottom: 5px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.aboutmain .forcontact form .formcontrol button {
+  background-image: -webkit-gradient(linear, left top, right top, from(#f57803), to(#f5d020));
+  background-image: linear-gradient(to right, #f57803, #f5d020);
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+  height: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 24px;
+  border: none;
+  outline: none;
+}
+
+.aboutmain .forcontact form .formcontrol button:hover {
+  background-image: -webkit-gradient(linear, left top, right top, from(#f5d020), to(#f57803));
+  background-image: linear-gradient(to right, #f5d020, #f57803);
+  color: white;
+}
+
+.aboutmain .forselfmap {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.aboutmain .forselfmap iframe {
+  border: none;
+  width: 600px;
+  height: 400px;
+}
+
+.footercontainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 40px;
+  font-weight: bold;
+  font-size: 20px;
+}
+/*# sourceMappingURL=About.module.css.map */

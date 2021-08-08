@@ -1,0 +1,259 @@
+a.butt {
+  position: relative;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 5px;
+  background: #0c4b33;
+  border-radius: 5px;
+  -webkit-transition: 0.5s ease-in;
+  transition: 0.5s ease-in;
+}
+
+a.butt:hover {
+  background: #c9f0dd;
+  color: #000;
+}
+
+a.delete {
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  background: #ff0000;
+  border-radius: 5px;
+  -webkit-transition: 0.5s ease-in;
+  transition: 0.5s ease-in;
+}
+
+a.delete:hover {
+  background: #dd1515;
+}
+
+button.butt {
+  position: relative;
+  border: none;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 5px;
+  background: #0c4b33;
+  border-radius: 5px;
+  -webkit-transition: 0.5s ease-in;
+  transition: 0.5s ease-in;
+}
+
+button.butt:hover {
+  background: #c9f0dd;
+  color: #000;
+}
+
+.mainphotoothers {
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.mainphotoothers .mainphoto {
+  -webkit-box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 100px 80px rgba(0, 0, 0, 0.12);
+          box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 100px 80px rgba(0, 0, 0, 0.12);
+}
+
+.mainphotoothers .otherimages {
+  cursor: pointer;
+}
+
+.mainphotoothers .otherimages .listinggallerycontainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1rem;
+}
+
+.details {
+  padding: 20px;
+}
+
+.details .price {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.details .otherdetails {
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.details .description h3 {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.details .description p {
+  font-size: 15px;
+}
+
+.formmap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1rem;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 20px;
+}
+
+.formmap .myform {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.formmap .myform h3 {
+  font-size: 20px;
+}
+
+.formmap .myform form {
+  border: solid 2px silver;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.formmap .myform form .formcontrol {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.formmap .myform form .formcontrol label {
+  font-weight: bold;
+  font-size: 15px;
+  padding-bottom: 10px;
+}
+
+.formmap .myform form .formcontrol input {
+  border: none;
+  outline: none;
+  height: 40px;
+  margin-bottom: 5px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.formmap .myform form .formcontrol button {
+  background-image: -webkit-gradient(linear, left top, right top, from(#f57803), to(#f5d020));
+  background-image: linear-gradient(to right, #f57803, #f5d020);
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+  height: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 24px;
+  border: none;
+  outline: none;
+}
+
+.formmap .myform form .formcontrol button:hover {
+  background-image: -webkit-gradient(linear, left top, right top, from(#f5d020), to(#f57803));
+  background-image: linear-gradient(to right, #f5d020, #f57803);
+  color: white;
+}
+
+.formmap .iframe {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.formmap .iframe iframe {
+  width: 600px;
+  height: 400px;
+  border: none;
+}
+
+.listingcontainer {
+  padding: 5px;
+}
+
+.listingcontainer .listingbox {
+  width: 300px;
+  height: auto;
+  position: relative;
+}
+
+.listingcontainer .listingbox .views {
+  position: absolute;
+  top: 160px;
+  left: 20px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.listingcontainer .listingbox .views .eye {
+  margin-top: 10px;
+  font-size: 20px;
+  color: white;
+}
+
+.listingcontainer .listingbox .listingdetails {
+  -webkit-box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 100px 80px rgba(0, 0, 0, 0.12);
+          box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 100px 80px rgba(0, 0, 0, 0.12);
+  padding: 5px;
+}
+
+.listingcontainer .listingbox .listingdetails .listingtype {
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.listingcontainer .listingbox .listingdetails .otherdetails {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1rem;
+}
+
+.listingcontainer .listingbox .listingdetails .fulllocation {
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.mainlisting {
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 10px;
+}
+
+h3.hometitle {
+  padding: 20px;
+  font-size: 20px;
+}
+
+@media (max-width: 700px) {
+  .mainlisting {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+/*# sourceMappingURL=Index.module.css.map */
