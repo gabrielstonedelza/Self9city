@@ -11,7 +11,7 @@ $(function () {
     var scrollTop = $(this).scrollTop();
 
     if (scrollTop < lastScrollTop) {
-      $("#search-button-container").hide()
+
       $('#navigationcontainer').css("backgroundColor","transparent")
     } else {
       $("#search-button-container").show()
@@ -22,7 +22,6 @@ $(function () {
   });
   $(window).on("load", () => {
     $('#navigationcontainer').css("backgroundColor", "transparent")
-    $("#search-button-container").hide()
   })
   
  

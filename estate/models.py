@@ -31,7 +31,7 @@ class Listings(models.Model):
         return reverse("listing_detail", args={self.slug})
 
     def get_absolute_url(self):
-        return f"/{self.slug}/"
+        return reverse("admin_listing_detail", args={self.slug})
 
     def get_listing_image(self):
         if self.photo:

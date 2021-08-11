@@ -21,7 +21,7 @@ Discover New Homes
     <br>
     <div class="estate-box mb-3">
         {% for list in all_listings %}
-        <a class="listingbox mb-3" href="{{ list.get_absolute_listing }}">
+        <a class="listingbox mb-3" href="{{ list.get_absolute_url }}">
             <div class="showcase-back"
                  style="background-image:url('{{ list.photo.url }}');background-size:cover;background-position:center;">
                 <div class="overlay"></div>

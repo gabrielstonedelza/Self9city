@@ -38,39 +38,7 @@ body {
   outline: none;
 }
 
-.ourmission {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (1fr)[3];
-      grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-}
-
-.ourmission .mission1 .fa-money-bill {
-  text-align: center;
-  font-size: 50px;
-}
-
-.ourmission .mission2 img {
-  width: 50px;
-  height: 50px;
-}
-
-.ourmission .mission3 .fa-home {
-  font-size: 50px;
-}
-
-.location-contact {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  gap: 2rem;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.location-contact button {
+button {
   background-image: -webkit-gradient(linear, left top, right top, from(#f57803), to(#f5d020));
   background-image: linear-gradient(to right, #f57803, #f5d020);
   text-decoration: none;
@@ -85,15 +53,45 @@ body {
   outline: none;
 }
 
-.location-contact button:hover {
+button:hover {
   background-image: -webkit-gradient(linear, left top, right top, from(#f5d020), to(#f57803));
   background-image: linear-gradient(to right, #f5d020, #f57803);
   color: white;
 }
 
-.location-contact button:focus {
+button:focus {
   border: none;
   outline: none;
+}
+
+.contact-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-list .communication {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1rem;
+}
+
+.contact-list .social-media {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1rem;
+}
+
+.contact-list .social-media a img {
+  width: 50px;
+  height: 50px;
 }
 
 .about-footer {

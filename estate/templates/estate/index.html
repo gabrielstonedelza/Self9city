@@ -10,14 +10,6 @@ Discover New Homes
     <div class='buyitems'>
         <h2>Discover a place <br> you'll love to live</h2>
         <br>
-        <form action="{% url 'index' %}" data-url="{% url 'search' %}" id="search-form" method="GET">
-            <input aria-label="Search"  name="q" placeholder="Search city and neighbourhood" size="70"
-                   size="70" type="search">
-            <button id="search-button" title="Search" type="submit">
-                <i class="fas fa-search text-muted"></i>
-            </button>
-        </form>
-
     </div>
 </div>
 <br>
@@ -26,7 +18,7 @@ Discover New Homes
     <br>
     <div class="estate-box mb-3">
         {% for list in all_listings %}
-        <a class="listingbox mb-5" href="{{ list.get_absolute_url }}">
+        <a class="listingbox mb-5" href="{{ list.get_absolute_listing }}">
             <div class="showcase-back"
                  style="background-image:url('{{ list.photo.url }}');background-size:cover;background-position:center;">
                 <div class="overlay"></div>

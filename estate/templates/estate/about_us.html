@@ -1,88 +1,98 @@
-{% extends "estate/otherbase.html"%}
-{% load humanize %}
+{% extends "estate/base.html"%}
 {% load static %}
 {% block title %}
 About Self9 City
 {% endblock %}
 {% load crispy_forms_tags %}
 {% block content %}
-<br>
-<br><br>
-<br><br>
-<br>
-<div class="container">
-    <h2 class="text-center">Self9 <span class="h2-city">City</span></h2>
-    <br>
-    <div class="ourmission">
-        <div class="mission1">
-            <span class="sell-home"></span>
-            <h3 class="text-center">
-                <i class="fas fa-money-bill"></i>
-                <br>
-                Sell your home
-            </h3>
-            <p>Looking to sell your house FAST?  We buy homes in any condition, <br>in any market, and can make you an offer in less than 24 hours.</p>
-        </div>
-        <div class="mission2">
 
-            <h3 class="text-center">
-                <img src="{% static 'estate/images/engineer.png' %}" alt="">
-                <br>
-                Contractors
-            </h3>
-            <p>We partner with local, reputable construction companies to renovate properties and revitalize communities. </p>
-        </div>
-        <div class="mission3">
-            <span class="realtors"></span>
-            <h3 class="text-center">
-                <i class="fas fa-home"></i>
-                <br>
-                Realtors
-            </h3>
-            <p>We work with a wide network of top agents on both sides of the transactions. <br> Whether you're needing a cash buyer, or you are looking for your next listing, contact us today.</p>
-        </div>
-    </div>
-    <br>
-    <h3 class="text-center">Why work with us?</h3>
-    <p>Transparency and integrity is the centerpiece of every deal we do.  We are always upfront with our offers and pride ourselves on doing business the right way. Safe9  City is committed to rejuvenating Space Coast communities through our systematic and disciplined approach, and creating lasting change in every neighborhood we encounter.</p>
-    <br>
-    <div class="need-to-sell-home">
-        <h2>Need to sell your home?</h2>
-        <h4 class="text-muted">Here To Help You Realize Your Real Estate Goals</h4>
-        <p>Most homeowners have no idea what options are available to them beyond listing a house with a real estate agent or just trying to sell the house on their own, and hope for the best.  We provide homeowners with a unique alternative to listing their house on their own or with a real estate agent.</p>
-    </div>
-    <br>
-    <div class="location-contact">
-        <div class="location-on-map">
-            <iframe
-          width="500"
-          height="300"
-          id="gmap_canvas"
-          src="https://maps.google.com/maps?q=Accra%20EastLegon&t=&z=13&ie=UTF8&iwloc=&output=embed"
-          frameborder="0"
-          scrolling="no"
-          marginheight="0"
-          marginwidth="0"
-        ></iframe>
-        </div>
-        <div class="contact-us-form">
-            <h3>Contact us today for more info</h3>
-            <form method="post">
-                {% csrf_token %}
-                <div class="form-control">
-                    {{ form|crispy }}
-                </div>
-                <br>
-                    <button id="contact-butt" type="submit">Send</button>
-            </form>
-        </div>
-    </div>
-    <br>
+<div class="video-container">
+    <video muted autoplay width="100%">
+        <source src="{% static 'estate/vids/self9city.mp4' %}" />
+    </video>
 </div>
-<br>
+<div class="container">
+    <br>
+    <div class="container">
+        <h3 class="text-center">Why work with us?</h3>
+        <p>Transparency and integrity is the centerpiece of every deal we do. We are always upfront with our offers and
+            pride ourselves on doing business the right way. Safe9 City is committed to rejuvenating Space Coast
+            communities through our systematic and disciplined approach, and creating lasting change in every
+            neighborhood we encounter.</p>
+    </div>
+    <br>
+    <div class="container">
+        <div class="need-to-sell-home">
+            <h2>Need to sell your home?</h2>
+            <h4 class="text-muted">Here To Help You Realize Your Real Estate Goals</h4>
+            <p>Most homeowners have no idea what options are available to them beyond listing a house with a real estate
+                agent or just trying to sell the house on their own, and hope for the best. We provide homeowners with a
+                unique alternative to listing their house on their own or with a real estate agent.</p>
+        </div>
+    </div>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-6 col-sm-6 col-md-6 mb-3 mr-auto" id="contactlists" style="display: flex;flex-direction: column;gap: 1rem;
+            justify-content:center;align-items: center;">
+                <div class="communication" style="display: flex;gap: 1rem;">
+                    <div style="">
+                        <i class="fas fa-phone" style="font-size: 20px;"></i> 0501095601
+                    </div>
+                    <div>
+                        <i class="fas fa-phone" style="font-size: 20px;"></i> 0552868008
+                    </div>
+                    <div>
+                        <i class="fas fa-envelope" style="font-size: 20px;"></i> info@self9city.com
+                    </div>
+                </div>
+                <div class="social-media" style="display: flex;gap: 1rem;">
+                    <a target="_blank">
+                        <img src="{% static 'estate/images/facebook.png' %}" alt="" style="width:40px;height:40px;">
+                    </a>
+                    <a target="_blank">
+                        <img src="{% static 'estate/images/instagram.png' %}" alt="" style="width:40px;height:40px;">
+                    </a>
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6 mb-3 ml-auto">
+                <h3>Contact us today for more info</h3>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="form-control">
+                        {{ form|crispy }}
+                    </div>
+                    <br>
+                    <button id="contact-butt" type="submit" style="background-image: linear-gradient(to right, #f57803, #f5d020);
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 24px;
+  border: none;
+  outline: none;cursor: pointer;">Send</button>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div>
+                    <iframe id="gmap_canvas" width="100%"
+                        src="https://maps.google.com/maps?q=Accra%20EastLegon&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                        frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="about-footer">
     <footer>
-        Copyright &copy; 2021 Safe9 City
+        Copyright &copy; 2021 Self9 City <br>
+        <small class="">Havens Software Development</small>
     </footer>
 </div>
 {% endblock %}

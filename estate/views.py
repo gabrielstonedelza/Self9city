@@ -76,7 +76,7 @@ def csrf_failure(request, reason=""):
     return render(request, "estate/403_csrf.html")
 
 
-def search_queries(request):
+def search(request):
     global search_listings
     query = request.GET.get('q', None)
     if query is not None:
@@ -97,13 +97,7 @@ def search_queries(request):
 
 @login_required()
 def my_index(request):
-    search_listings = request.GET.get('q', '')
-    if search_listings:
-        all_listings = Listings.objects.filter(
-            Q(full_location__icontains=search_listings)
-        )
-    else:
-        all_listings = Listings.objects.all().order_by('-date_posted')
+    all_listings = Listings.objects.all().order_by('-date_posted')
 
     paginator = Paginator(all_listings, 50)
     page = request.GET.get('page')
@@ -117,13 +111,7 @@ def my_index(request):
 
 
 def index(request):
-    search_listings = request.GET.get('q', '')
-    if search_listings:
-        all_listings = Listings.objects.filter(
-            Q(full_location__icontains=search_listings)
-        )
-    else:
-        all_listings = Listings.objects.all().order_by('-date_posted')
+    all_listings = Listings.objects.all().order_by('-date_posted')
 
     paginator = Paginator(all_listings, 50)
     page = request.GET.get('page')
@@ -135,7 +123,7 @@ def index(request):
     return render(request, "estate/index.html", context)
 
 
-def admin_listing_detail(request, slug):
+def listing_detail(request,slug):
     listing = get_object_or_404(Listings, slug=slug)
     listing_gallery = ListingGallery.objects.filter(listing=listing)
 
@@ -152,7 +140,6 @@ def admin_listing_detail(request, slug):
             message = form.cleaned_data.get('message')
 
             ContactUs.objects.create(listing=listing, full_name=fname, email=email, phone=phone, message=message)
-            messages.success(request, f"Thank you,we will get back to you soon.")
             # send_my_mail(f"Hi from Safe9 City", settings.EMAIL_HOST_USER, email, {"name": fname},
             #              "email_templates/success.html")
             # send_my_mail(f"New Message", settings.EMAIL_HOST_USER, settings.EMAIL_HOST_USER,
@@ -169,6 +156,23 @@ def admin_listing_detail(request, slug):
     }
 
     return render(request, "estate/listing_detail.html", context)
+
+
+def admin_listing_detail(request, slug):
+    listing = get_object_or_404(Listings, slug=slug)
+    listing_gallery = ListingGallery.objects.filter(listing=listing)
+
+    if listing:
+        listing.views += 1
+        listing.save()
+
+
+    context = {
+        "listing": listing,
+        "listing_gallery": listing_gallery,
+    }
+
+    return render(request, "estate/admin_listing_detail.html", context)
 
 
 @login_required()
@@ -235,11 +239,11 @@ def about_us(request):
 
             ContactUs.objects.create(full_name=fname, email=email, phone=phone, message=message)
             # messages.success(request, f"Thank you,we will get back to you soon.")
-            send_my_mail(f"Hi from Safe9 City", settings.EMAIL_HOST_USER, email, {"name": fname},
-                         "email_templates/success.html")
-            send_my_mail(f"New Message", settings.EMAIL_HOST_USER, settings.EMAIL_HOST_USER,
-                         {"name": fname, "email": email, "message": message},
-                         "email_templates/contact_success.html")
+            # send_my_mail(f"Hi from Safe9 City", settings.EMAIL_HOST_USER, email, {"name": fname},
+            #              "email_templates/success.html")
+            # send_my_mail(f"New Message", settings.EMAIL_HOST_USER, settings.EMAIL_HOST_USER,
+            #              {"name": fname, "email": email, "message": message},
+            #              "email_templates/contact_success.html")
             return redirect('about')
     else:
         form = ContactForm()
