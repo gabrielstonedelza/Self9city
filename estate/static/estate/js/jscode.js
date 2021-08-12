@@ -21,6 +21,4 @@ $(function () {
   $(window).on("load", () => {
     $('#navigationcontainer').css("backgroundColor", "rgba(19, 16, 16, 0.589)")
   })
-  
- 
 });

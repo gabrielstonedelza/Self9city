@@ -1,6 +1,7 @@
 @import "./variables";
 
 #navigationcontainer {
+  transition: ease 1s;
   position: fixed;
   width: 100%;
   height: 70px;
@@ -74,15 +75,15 @@
 }
 
 // media queries
-@media screen and (max-width: 1052px) {
-  #navigationcontainer {
-    ul {
-      li.logo {
-        display: none;
-      }
-    }
-  }
-}
+// @media screen and (max-width: 1052px) {
+//   #navigationcontainer {
+//     ul {
+//       li.logo {
+//         display: none;
+//       }
+//     }
+//   }
+// }
 
 @media (max-width: 868px) {
   #navigationcontainer {

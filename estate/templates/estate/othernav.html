@@ -1,6 +1,38 @@
 {% load static %}
 
-<div class="navigationcontainer">
+<nav id="navigationcontainer" style="background-color: rgba(0, 0, 0, 0.575);">
+  <ul class="menu-list">
+    <li class="logo">
+      <img src="{% static 'estate/images/self-9.png' %}" alt="">
+      <div>
+        SELF<span class="nine">9</span>CITY
+      </div>
+    </li>
+    <div class="open-menu">
+      <i class="fas fa-bars"></i>
+    </div>
+    <div class="items">
+      <div class="cancel-btn">
+        <i class="fas fa-times"></i>
+      </div>
+      {% if request.user.is_authenticated %}
+      <li title="go home"><a href="{% url 'my_index' %}">Home</a></li>
+      <li title="add new listing">
+        <a href="{% url 'create_listing' %}">
+          <i class="fas fa-plus-circle"></i> Listings
+        </a>
+      </li>
+      <li title="add to home listing gallery">
+        <a href="{% url 'add_to_gallery' %}">
+          <i class="fas fa-plus-circle"></i> Gallery
+        </a>
+      </li>
+      {% endif %}
+    </div>
+  </ul>
+</nav>
+
+<!-- <div class="navigationcontainer">
     <div class="navigationitems">
         <div class="logotitle">
             <img alt="" src="{% static 'estate/images/self-9.png' %}">
@@ -56,4 +88,4 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
