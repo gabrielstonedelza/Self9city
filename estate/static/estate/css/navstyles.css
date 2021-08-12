@@ -39,13 +39,11 @@ body {
 }
 
 #navigationcontainer {
-  -webkit-transition: ease 1s;
-  transition: ease 1s;
   position: fixed;
   width: 100%;
   height: 70px;
   z-index: 5;
-  background-color: rgba(19, 16, 16, 0.589);
+  background-color: #222222;
 }
 
 #navigationcontainer ul {
