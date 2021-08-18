@@ -340,3 +340,6 @@ def contact_detail(request,id):
     }
 
     return render(request,"estate/contact_detail.html", context)
+
+def feedback(request):
+    return render(request,"estate.feedbacks.html")
