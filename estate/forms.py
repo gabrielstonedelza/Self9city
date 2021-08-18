@@ -1,11 +1,12 @@
 from django import forms
-from .models import Listings, ListingGallery, ContactUs
+from .models import Listings, ListingGallery, ContactUs, LeaseRegistration
 
 
 class NewListingForm(forms.ModelForm):
     class Meta:
         model = Listings
-        fields = ['full_location', 'rooms', 'baths', 'size_of_building', 'photo', 'price', 'description',
+        fields = ['listing_type', 'rent_period', 'full_location', 'rooms', 'baths', 'size_of_building', 'photo',
+                  'price', 'description',
                   'can_pay_monthly']
 
 
@@ -25,3 +26,9 @@ class ContactForm(forms.ModelForm):
     class Meta:
         model = ContactUs
         fields = ['full_name', 'email', 'phone', 'message']
+
+
+class LeaseForm(forms.ModelForm):
+    class Meta:
+        model = LeaseRegistration
+        fields = ['location_of_land', 'size_of_land', 'photo', 'full_name', 'email', 'phone', 'message']

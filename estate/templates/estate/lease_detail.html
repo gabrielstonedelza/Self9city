@@ -1,0 +1,31 @@
+{% extends "estate/otherbase.html"%}
+{% load humanize %}
+{% block title %}
+Contacted Lists
+{% endblock %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container">
+    <br>
+    <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-8 ml-auto mr-auto mb-3">
+            <div class="jumbotron">
+                <h4>New Lease Contact</h4>
+                <br>
+                <h6><b>Location:</b> {{ lease.location_of_land }}</h6>
+                <p><b>Size of Land:</b> {{ lease.size_of_land}}</p>
+                <p><b>Name:</b> {{ lease.full_name}}</p>
+                <p><b>Email:</b> {{ lease.email}}</p>
+                <p><b>Phone:</b> {{ lease.phone}}</p>
+                <p><b>Message:</b> {{ lease.message}}</p>
+                <a href="{{ lease.photo.url }}" data-lightbox="gallery">
+                    <img src="{{ lease.photo.url }}" alt="" style="width: 200px;height: 150px;">
+                </a>
+                <br>
+                <br>
+                <a href="{% url 'contact-lists' %}" class="btn btn-sm btn-primary">Back</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

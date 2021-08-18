@@ -6,9 +6,9 @@ from django.db.models import Q
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .process_mail import send_my_mail
-from .models import Listings, ListingGallery, ContactUs, ContactSelf9
+from .models import Listings, ListingGallery, ContactUs, ContactSelf9, LeaseRegistration
 
-from .forms import (NewListingForm, AddToListingGallery, ContactForm)
+from .forms import (NewListingForm, AddToListingGallery, ContactForm, LeaseForm)
 from django.conf import settings
 from .serializers import ListingSerializer, ListingGallerySerializer, ContactSerializer, ContactSelf9Serializer
 
@@ -123,7 +123,7 @@ def index(request):
     return render(request, "estate/index.html", context)
 
 
-def listing_detail(request,slug):
+def listing_detail(request, slug):
     listing = get_object_or_404(Listings, slug=slug)
     listing_gallery = ListingGallery.objects.filter(listing=listing)
 
@@ -166,7 +166,6 @@ def admin_listing_detail(request, slug):
         listing.views += 1
         listing.save()
 
-
     context = {
         "listing": listing,
         "listing_gallery": listing_gallery,
@@ -204,6 +203,8 @@ def create_listing(request):
     if request.method == "POST":
         form = NewListingForm(request.POST, request.FILES)
         if form.is_valid():
+            listing_type = form.cleaned_data.get('listing_type')
+            rent_period = form.cleaned_data.get('rent_period')
             full_location = form.cleaned_data.get('full_location')
             rooms = form.cleaned_data.get('rooms')
             baths = form.cleaned_data.get('baths')
@@ -212,10 +213,10 @@ def create_listing(request):
             price = form.cleaned_data.get('price')
             description = form.cleaned_data.get('description')
             can_pay_monthly = form.cleaned_data.get('can_pay_monthly')
-            Listings.objects.create(full_location=full_location, rooms=rooms, baths=baths,
+            Listings.objects.create(listing_type=listing_type, rent_period=rent_period, full_location=full_location,
+                                    rooms=rooms, baths=baths,
                                     size_of_building=size_of_building,
                                     photo=photo, price=price, description=description, can_pay_monthly=can_pay_monthly)
-            messages.success(request, 'listing added but still awaiting approval')
             return redirect('my_index')
         else:
             messages.info(request, "something went wrong")
@@ -236,14 +237,7 @@ def about_us(request):
             email = form.cleaned_data.get('email')
             phone = form.cleaned_data.get('phone')
             message = form.cleaned_data.get('message')
-
             ContactUs.objects.create(full_name=fname, email=email, phone=phone, message=message)
-            # messages.success(request, f"Thank you,we will get back to you soon.")
-            # send_my_mail(f"Hi from Safe9 City", settings.EMAIL_HOST_USER, email, {"name": fname},
-            #              "email_templates/success.html")
-            # send_my_mail(f"New Message", settings.EMAIL_HOST_USER, settings.EMAIL_HOST_USER,
-            #              {"name": fname, "email": email, "message": message},
-            #              "email_templates/contact_success.html")
             return redirect('about')
     else:
         form = ContactForm()
@@ -252,3 +246,97 @@ def about_us(request):
         "form": form,
     }
     return render(request, "estate/about_us.html", context)
+
+
+def contacted_lists(request):
+    clists = ContactUs.objects.all().order_by('-date_posted')
+    cself9_lists = ContactSelf9.objects.all().order_by('-date_posted')
+    leases = LeaseRegistration.objects.all().order_by('-date_posted')
+
+    context = {
+        "clists": clists,
+        "cself9_lists": cself9_lists,
+        "leases": leases
+    }
+
+    return render(request, "estate/contactedlists.html", context)
+
+
+def buy_lists(request):
+    buying = Listings.objects.filter(listing_type="House for Sale")
+    paginator = Paginator(buying, 50)
+    page = request.GET.get('page')
+    buying = paginator.get_page(page)
+
+    context = {
+        "buying": buying
+    }
+
+    return render(request, "estate/buying.html", context)
+
+
+def rent_lists(request):
+    rents = Listings.objects.filter(listing_type="Apartment for Rent")
+    paginator = Paginator(rents, 50)
+    page = request.GET.get('page')
+    rents = paginator.get_page(page)
+
+    context = {
+        "rents": rents
+    }
+
+    return render(request, "estate/rents.html", context)
+
+
+def register_lease(request):
+    if request.method == "POST":
+        form = LeaseForm(request.POST, request.FILES)
+        if form.is_valid():
+            location_of_land = form.cleaned_data.get('location_of_land')
+            size_of_land = form.cleaned_data.get('size_of_land')
+            full_name = form.cleaned_data.get('full_name')
+            email = form.cleaned_data.get('email')
+            phone = form.cleaned_data.get('phone')
+            message = form.cleaned_data.get('message')
+            photo = form.cleaned_data.get('photo')
+            LeaseRegistration.objects.create(location_of_land=location_of_land, size_of_land=size_of_land,
+                                             full_name=full_name, email=email, phone=phone, message=message,
+                                             photo=photo)
+            return redirect('index')
+        else:
+            messages.info(request, "something went wrong")
+    else:
+        form = LeaseForm()
+
+    context = {
+        "form": form,
+    }
+    return render(request, "estate/leaseregister.html", context)
+
+
+def lease_detail(request,id):
+    lease = get_object_or_404(LeaseRegistration,id=id)
+
+    context = {
+        "lease": lease
+    }
+
+    return render(request,"estate/lease_detail.html", context)
+
+def self9_detail(request,id):
+    self9 = get_object_or_404(ContactSelf9,id=id)
+
+    context = {
+        "self9": self9
+    }
+
+    return render(request,"estate/self9_detail.html", context)
+
+def contact_detail(request,id):
+    clist = get_object_or_404(ContactUs,id=id)
+
+    context = {
+        "clist": clist
+    }
+
+    return render(request,"estate/contact_detail.html", context)

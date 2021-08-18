@@ -1,64 +1,46 @@
 {% extends "estate/base.html"%}
 {% load humanize %}
 {% block title %}
-Discover New Homes
+Apartments to Rent
 {% endblock %}
 {% block content %}
-<div class="buycontainer">
-    <div class='buyback'></div>
-    <div class='buyoverlay'></div>
-    <div class='buyitems'>
-        <h2>Discover your perfect home</h2>
-        <p>
-            With the most complete source of homes for sale & real estate near
-            you
-        </p>
-    </div>
-</div>
-<br>
 <div class="container">
-    <h3>Just for you</h3>
+    <br>
+    <h3 class="text-center">Rent your favorite apartment</h3>
     <br>
     <div class="estate-box mb-3">
-        {% for list in all_listings %}
+        {% for list in rents %}
         <a class="listingbox mb-5" href="{{ list.get_absolute_listing }}">
             <div class="showcase-back"
-                style="background-image:url('{{ list.photo.url }}');background-size:cover;background-position:center;">
+                 style="background-image:url('{{ list.photo.url }}');background-size:cover;background-position:center;">
                 <div class="overlay"></div>
             </div>
-
+            <!--                <img src="{{ list.photo.url }}" alt="">-->
             <span class="on-overlay">
-                <span class="for-price">{{ list.price }}</span>
-                <span class="for-views">
-                    <i class="fas fa-eye"></i> {{ list.views }}
+                    <span class="for-price">{{ list.price }}</span>
+                    <span class="for-views">
+                        <i class="fas fa-eye"></i> {{ list.views }}
+                    </span>
                 </span>
-                <br>
-                
-            </span>
             <div class="roombath">
                 <div>
-                    <span style="background-color: yellow;padding: 5px;border-radius: 5px;">{{ list.listing_type }}</span>
-                    <br><br>
-                    <span>{{ list.rooms}} rooms</span> |
-                    <span>{{ list.baths }} bath</span> |
-                    <span>{{ list.size_of_building}}</span>
+                    <span>{{ list.rooms}} rooms</span> <span>{{ list.baths }} bath</span> <span>{{ list.size_of_building }}</span>
                 </div>
                 <div>
-                    <span>{{ list.full_location|slice:"25" }}...</span><br>
+                    <span>{{ list.full_location }}</span><br>
                     <small class="text-muted">{{ list.date_posted|naturaltime}}</small>
                 </div>
             </div>
         </a>
-        <br>
         {% endfor %}
         <br>
     </div>
     <br>
     <br>
-    {% if all_listings%}
+    {% if rents %}
     <nav aria-label="Page navigation example">
         <ul class="pagination pagination-circle pg-blue pt-3">
-            {% if all_listings.has_previous %}
+            {% if rents.has_previous %}
             <li class="page-item "><a class="page-link" href="?page=1">First</a></li>
             <li class="page-item ">
                 <a aria-label="Previous" class="page-link" href="?page={{ page_range.previous_page_number }}">
@@ -67,26 +49,25 @@ Discover New Homes
                 </a>
             </li>
             {% endif %}
-
-            {% for c in all_listings.paginator.page_range %}
-            {% if all_listings.number == c %}
+    
+            {% for c in rents.paginator.page_range %}
+            {% if rents.number == c %}
             <li class="page-item active">
                 <a class="page-link" href="?page={{ c }}">{{ c }}</a>
             </li>
-            {% elif c > all_listings.number|add:"-3" and c < all_listings.number|add:"-3" %} {{ c }} {% else %} <li
-                class="page-item">
+            {% elif c > rents.number|add:"-3" and c < rents.number|add:"-3" %} {{ c }} {% else %} <li class="page-item">
                 <a a class="page-link" href="?page={{ c }}">{{c }}</a></li>
                 {% endif %}
                 {% endfor %}
-
-                {% if all_listings.has_next %}
+    
+                {% if rents.has_next %}
                 <li class="page-item">
-                    <a aria-label="Next" class="page-link" href="?page={{ all_listings.next_page_number }}">
+                    <a aria-label="Next" class="page-link" href="?page={{ rents.next_page_number }}">
                         <span aria-hidden="true">&raquo;</span>
                         <span class="sr-only">Next</span>
                     </a>
                 </li>
-                <li class="page-item"><a class="page-link" href="?page={{ all_listings.paginator.num_pages }}">Last</a>
+                <li class="page-item"><a class="page-link" href="?page={{ rents.paginator.num_pages }}">Last</a>
                 </li>
                 {% endif %}
         </ul>
@@ -94,5 +75,4 @@ Discover New Homes
     {% endif %}
     <br>
 </div>
-<br>
-{% endblock content %}
+{% endblock %}

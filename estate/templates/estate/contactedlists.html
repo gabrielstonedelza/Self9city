@@ -1,0 +1,54 @@
+{% extends "estate/otherbase.html"%}
+{% load humanize %}
+{% block title %}
+Contacted Lists
+{% endblock %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container">
+    <br>
+    <h2 class="text-center">Your Contact Lists</h2>
+    <br>
+    <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-4 mr-auto mb-3">
+            <h4 class="text-center">For Listings</h4>
+            <br>
+            <ul class="list-group">
+                {% for listing in clists %}
+                <a href="{{ listing.get_absolute_contact }}">
+                    <li class="list-group-item text-muted">
+                        {{ listing.full_name }}
+                    </li>
+                </a>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-4 ml-auto mb-3">
+            <h4 class="text-cent">For Self9</h4>
+            <br>
+            <ul class="list-group">
+                {% for contact in cself9_lists %}
+                <a href="{{ contact.get_absolute_self9_contact }}">
+                    <li class="list-group-item text-muted">
+                        {{ contact.name }}
+                    </li>
+                </a>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-4 ml-auto mb-3">
+            <h4 class="text-cent">For Lease</h4>
+            <br>
+            <ul class="list-group">
+                {% for lease in leases %}
+                <a href="{{ lease.get_absolute_lease}}">
+                    <li class="list-group-item text-muted">
+                        {{ lease.full_name }}
+                    </li>
+                </a>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

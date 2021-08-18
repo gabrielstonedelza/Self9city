@@ -1,13 +1,16 @@
-{% extends "estate/otherbase.html"%}
+{% extends "estate/base.html"%}
 {% load crispy_forms_tags %}
 {% block title %}
-Add new listing
+Register your land
 {% endblock %}
 {% block content%}
 <div class="blog-form-container">
     <br>
     <div class="container">
-        <h3 class="text-center">Add new listing</h3>
+        <h3 class="text-center">Register your land</h3>
+        <br>
+        <h6 class="text-muted text-center mb-3">Fill in the form below and we get back to ASAP.</h6>
+        <br>
         <div class="row">
             <div class="col-xs-6 col-sm-6 col-md-8 ml-auto mr-auto mb-3">
                 <form enctype="multipart/form-data" method="post">
@@ -16,7 +19,7 @@ Add new listing
                         {{ form|crispy }}
                     </div>
                     <div class="form-group">
-                        <button class="butt" type="submit">Add</button>
+                        <button class="butt" type="submit">Request</button>
                     </div>
                 </form>
             </div>

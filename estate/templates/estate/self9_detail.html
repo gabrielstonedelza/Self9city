@@ -1,0 +1,25 @@
+{% extends "estate/otherbase.html"%}
+{% load humanize %}
+{% block title %}
+Contacted Lists
+{% endblock %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container">
+    <br>
+    <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-8 ml-auto mr-auto mb-3">
+            <div class="jumbotron">
+                <h4>{{ self9.name}} sent a personal message to self9</h4>
+
+                <br>
+                <h6><b>Name:</b> {{ self9.name }}</h6>
+                <p><b>Email:</b> {{ self9.email}}</p>
+                <p><b>Phone:</b> {{ self9.phone}}</p>
+                <p><b>Message:</b> {{ self9.message}}</p>
+                <a href="{% url 'contact-lists' %}" class="btn btn-sm btn-primary">Back</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
