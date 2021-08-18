@@ -6,9 +6,10 @@
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: monospace;
   overflow-x: hidden;
   line-height: 1.5;
+  background: #d3d3d3;
 }
 
 .butt {
@@ -82,5 +83,10 @@ button:focus {
 
 .about-footer footer {
   font-weight: bold;
+}
+
+*img {
+  width: 100%;
+  display: block;
 }
 /*# sourceMappingURL=about.css.map */
