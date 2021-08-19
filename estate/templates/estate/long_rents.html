@@ -1,23 +1,23 @@
 {% extends "estate/base.html"%}
 {% load humanize %}
 {% block title %}
-Apartments to Rent
+Long Term Rents
 {% endblock %}
 {% block content %}
 <div class="container">
     <br>
-    <h3 class="text-center">Rent your favorite apartment</h3>
+    <h3 class="text-center text-muted">Your Long Term Rentals</h3>
     <br>
     <div class="row mb-3">
-        {% for list in rents %}
+        {% for list in long_rents %}
         <div class="col-xs-6 col-sm-6 col-md-4 mb-3">
             <a href="{{ list.get_absolute_listing }}">
-                <div class="card">
+                <div class="card text-muted">
                     <div class="view overlay">
                         <img class="card-img-top" src="{{ list.photo.url}}" alt="Card image cap"
                             style="width: 100%;height: 200px;">
                     </div>
-                    <div class="card-body text-muted">
+                    <div class="card-body">
                         <span class="card-title" style="background-color: yellow;padding: 5px;border-radius: 5px;">{{ list.listing_type }}</span>
                         | <span class="for-price">{{ list.price }}</span>
                         <hr>
@@ -27,22 +27,23 @@ Apartments to Rent
                         <span>{{ list.full_location|slice:"25" }}...</span>
                     </div>
                     <div class="card-footer">
-                        <small class="text-muted">{{ list.date_posted|naturaltime}}</small> | <span
-                            class="for-views text-muted">
+                        <small class="text-muted">{{ list.date_posted|naturaltime}}</small> | <span class="for-views">
                             <i class="fas fa-eye"></i> {{ list.views }}
                         </span>
                     </div>
                 </div>
             </a>
         </div>
+        {% empty %}
+        <p>Sorry, no results found.</p>
         {% endfor %}
     </div>
     <br>
     <br>
-    {% if rents %}
+    {% if long_rents%}
     <nav aria-label="Page navigation example">
         <ul class="pagination pagination-circle pg-blue pt-3">
-            {% if rents.has_previous %}
+            {% if long_rents.has_previous %}
             <li class="page-item "><a class="page-link" href="?page=1">First</a></li>
             <li class="page-item ">
                 <a aria-label="Previous" class="page-link" href="?page={{ page_range.previous_page_number }}">
@@ -51,25 +52,26 @@ Apartments to Rent
                 </a>
             </li>
             {% endif %}
-    
-            {% for c in rents.paginator.page_range %}
-            {% if rents.number == c %}
+
+            {% for c in long_rents.paginator.page_range %}
+            {% if long_rents.number == c %}
             <li class="page-item active">
                 <a class="page-link" href="?page={{ c }}">{{ c }}</a>
             </li>
-            {% elif c > rents.number|add:"-3" and c < rents.number|add:"-3" %} {{ c }} {% else %} <li class="page-item">
+            {% elif c > long_rents.number|add:"-3" and c < long_rents.number|add:"-3" %} {{ c }} {% else %} <li
+                class="page-item">
                 <a a class="page-link" href="?page={{ c }}">{{c }}</a></li>
                 {% endif %}
                 {% endfor %}
-    
-                {% if rents.has_next %}
+
+                {% if long_rents.has_next %}
                 <li class="page-item">
-                    <a aria-label="Next" class="page-link" href="?page={{ rents.next_page_number }}">
+                    <a aria-label="Next" class="page-link" href="?page={{ long_rents.next_page_number }}">
                         <span aria-hidden="true">&raquo;</span>
                         <span class="sr-only">Next</span>
                     </a>
                 </li>
-                <li class="page-item"><a class="page-link" href="?page={{ rents.paginator.num_pages }}">Last</a>
+                <li class="page-item"><a class="page-link" href="?page={{ long_rents.paginator.num_pages }}">Last</a>
                 </li>
                 {% endif %}
         </ul>

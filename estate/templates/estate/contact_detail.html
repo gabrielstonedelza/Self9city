@@ -9,11 +9,13 @@ Contacted Lists
     <br>
     <div class="row">
         <div class="col-xs-6 col-sm-6 col-md-8 ml-auto mr-auto mb-3">
-            <div class="jumbotron">
+            <div class="jumbotron text-muted">
                 <h4>{{ clist.full_name}} is interested in "{{ clist.listing }}"</h4>
 
                 <br>
                 <h6><b>Name:</b> {{ clist.full_name }}</h6>
+                <p><b>Listing Type:</b> {{ clist.listing_type}}</p>
+                <p><b>Rent Period:</b> {{ clist.rent_period}}</p>
                 <p><b>Email:</b> {{ clist.email}}</p>
                 <p><b>Phone:</b> {{ clist.phone}}</p>
                 <p><b>Additional Message:</b> {{ clist.message}}</p>

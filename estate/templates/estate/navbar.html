@@ -27,32 +27,43 @@
 </div>
 
 <div id="mysidenav">
-  <div class="nav-container">
-    <div class="for-self-logo">
-      <img src="{% static 'estate/images/self-9.png'%}" alt="">
+  <div class="mynav-items-container">
+    <div class="nav-container">
+      <div class="for-self-logo">
+        <img src="{% static 'estate/images/self-9.png'%}" alt="">
+      </div>
+      <div class="self9-title">
+        <span>SELF9<span class="city">CITY</span>
+      </div>
+      <div class="show-nav-menu">
+        <i class="fas fa-bars"></i>
+      </div>
+      <div class="cancel-btn">
+        <i class="fas fa-times"></i>
+      </div>
     </div>
-    <div class="self9-title">
-      <span>SELF9<span class="city">CITY</span>
-    </div>
-    <div class="show-nav-menu">
-      <i class="fas fa-bars"></i>
+    <div class="navbar-menu-container">
+      <h4 class="text-center">SELF9CITY</h4>
+      <div class="mottor">Find your favorite home</div>
+      <ul>
+        <li><a href="{% url 'index' %}">Home</a></li>
+        <li><a href="{% url 'buying' %}">Buy</a></li>
+        <li id="rents">
+          <a href="{% url 'rents' %}">Rent</a>
+          <div class="for-rents">
+            <ul>
+              <li><a href="{% url 'short-term-rents' %}">Short Term</a></li>
+              <li><a href="{% url 'long-term-rents' %}">Long Term</a></li>
+            </ul>
+          </div>
+        </li>
+        <li><a href="{% url 'lease' %}">Lease</a></li>
+        <li><a href="{% url 'about' %}">About</a></li>
+        <li class="">
+          <a title="Search" class="nav-link" href="#" data-toggle="modal" data-target="#basicExampleModal" style="padding: 0;"><i
+              class="fas fa-search"></i></a>
+        </li>
+      </ul>
     </div>
   </div>
-</div>
-
-<div id="navlinks-container">
-  <ul>
-    <div class="cancel-btn">
-      <i class="fas fa-times"></i>
-    </div>
-    <li><a href="{% url 'index' %}">Home</a></li>
-    <li><a href="{% url 'buying' %}">Buy</a></li>
-    <li><a href="{% url 'rents' %}">Rent</a></li>
-    <li><a href="{% url 'lease' %}">Lease</a></li>
-    <li><a href="{% url 'about' %}">About</a></li>
-    <li class="">
-      <a title="Search" class="nav-link" href="#" data-toggle="modal" data-target="#basicExampleModal"><i
-          class="fas fa-search"></i></a>
-    </li>
-  </ul>
 </div>

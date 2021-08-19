@@ -5,82 +5,229 @@
   z-index: 5;
   top: 90px;
   right: 0;
-  background-color: rgba(71, 70, 70, 0.726);
   border-radius: 5px;
   height: auto;
-  width: 100px;
-  .nav-container {
+  transition: all 0.3s ease;
+  // width: 100px;
+  .mynav-items-container {
     display: flex;
-    gap: 2rem;
-    flex-direction: column;
-    justify-content: space-between;
+    gap: 1rem;
+    padding: 10px;
+    // justify-content: center;
     align-items: center;
-    .for-self-logo {
-      img {
-        width: 100px;
-        height: 100px;
+
+    .nav-container {
+      transition: all 0.3s ease;
+      background-color: rgba(71, 70, 70, 0.726);
+      border-radius: 5px;
+      display: flex;
+      gap: 2rem;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      .for-self-logo {
+        img {
+          width: 100px;
+          height: 100px;
+        }
       }
-    }
-    .self9-title {
-      padding: 20px;
-      font-weight: bold;
-      color: #fff;
-      font-size: 20px;
-      transform: rotate(90deg);
-      .city {
-        font-style: italic;
-        color: #000;
-      }
-    }
-    .show-nav-menu {
-      cursor: pointer;
-      padding-top: 20px;
-      padding-bottom: 20px;
-      .fa-bars {
-        color: #fff;
+      .self9-title {
+        padding: 20px;
+        font-weight: bold;
+        color: $primary_color;
         font-size: 20px;
+        transform: rotate(90deg);
+        .city {
+          font-style: italic;
+          color: #000;
+        }
+      }
+      .show-nav-menu {
+        cursor: pointer;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        .fa-bars {
+          color: #fff;
+          font-size: 20px;
+        }
+        .fa-times {
+          color: #fff;
+          font-size: 20px;
+        }
+      }
+      .cancel-btn {
+        display: none;
+        cursor: pointer;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        .fa-times {
+          color: #fff;
+          font-size: 20px;
+        }
+      }
+    }
+    .navbar-menu-container {
+      transition: all 0.3s ease;
+      display: none;
+      flex-direction: column;
+      gap: 1rem;
+      justify-content: center;
+      align-items: center;
+      background-color: rgba(71, 70, 70, 0.726);
+      height: 300px;
+      border-radius: 5px;
+      h4 {
+        color: $primary_color;
+        font-weight: bold;
+        font-size: 30px;
+      }
+      .mottor {
+        display: flex;
+        justify-content: center;
+        color: $primary_color;
+        font-weight: bold;
+      }
+      ul {
+        list-style-type: none;
+        display: flex;
+        gap: 1rem;
+        li {
+          padding: 20px;
+          cursor: pointer;
+          a {
+            color: $primary_color;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            padding-left: 10px;
+            padding-right: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 20px;
+            &:hover {
+              background-image: linear-gradient(to right, #f5d020, #f57803);
+              color: white;
+            }
+          }
+          .for-rents {
+            position: absolute;
+            display: none;
+            background-image: linear-gradient(to right, #363534, #6e6e6c);
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            ul {
+              list-style-type: none;
+              display: flex;
+              flex-direction: column;
+              gap: 1rem;
+              li {
+                padding: 5px;
+                a {
+                  font-size: 13px;
+                  padding: 5px;
+                  &:hover {
+                    background-image: linear-gradient(
+                      to right,
+                      #f5d020,
+                      #f57803
+                    );
+                    color: white;
+                    border-radius: 5px;
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
 }
 
-#navlinks-container {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0%;
-  height: 100vh;
-  width: 100%;
-  max-width: 400px;
-  z-index: 5;
-  background-color: azure;
-  background-image: linear-gradient(to right, #3b3b3a, #2c2a22);
-  transition: all 0.3s ease;
-  ul {
-    list-style-type: none;
-    display: block;
-    padding: 40px 0;
-    text-align: center;
-    
-    .cancel-btn {
-      position: absolute;
-      right: 30px;
-      top: 20px;
-      cursor: pointer;
-      color: #fff;
-      font-size: 30px;
-    }
-    li {
-      margin-top: 20px;
-      a {
-        padding: 10px;
-        font-size: 24px;
-        color:white;
-        transition: all 0.3s ease;
-        border-radius: 5px;
-        &:hover{
-          background-color: white;
-          color: black;
+// media queries
+@media (max-width: 700px) {
+  #mysidenav {
+    width: 100%;
+    top: 10px;
+    .mynav-items-container {
+      display: flex;
+      flex-direction: column;
+
+      .nav-container {
+        display: flex;
+        flex-direction: row;
+        .self9-title {
+          padding: 10px;
+          font-weight: bold;
+          color: $primary_color;
+          font-size: 15px;
+          transform: rotate(0deg);
+          .city {
+            font-style: italic;
+            color: #000;
+          }
+        }
+        .show-nav-menu,.cancel-btn {
+        cursor: pointer;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        padding-right: 10px;
+        
+      }
+      }
+      .navbar-menu-container {
+        height: auto;
+        width: 100%;
+        width: inherit;
+        h4 {
+          display: none;
+        }
+        .mottor {
+          display: none;
+        }
+        ul {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          // flex-direction: column;
+          li{
+            padding: 5px;
+            a{
+              font-size: 15px;
+              padding: 5px;
+              &:hover{
+                padding: 5px;
+              }
+            }
+            .for-rents {
+            position: absolute;
+            display: none;
+            background-image: linear-gradient(to right, #363534, #6e6e6c);
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            ul {
+              list-style-type: none;
+              display: flex;
+              flex-direction: column;
+              gap: 1rem;
+              li {
+                padding: 5px;
+                a {
+                  font-size: 10px;
+                  padding: 5px;
+                  &:hover {
+                    background-image: linear-gradient(
+                      to right,
+                      #f5d020,
+                      #f57803
+                    );
+                    color: white;
+                    border-radius: 5px;
+                  }
+                }
+              }
+            }
+          }
+          }
         }
       }
     }

@@ -139,12 +139,7 @@ def listing_detail(request, slug):
             phone = form.cleaned_data.get('phone')
             message = form.cleaned_data.get('message')
 
-            ContactUs.objects.create(listing=listing, full_name=fname, email=email, phone=phone, message=message)
-            # send_my_mail(f"Hi from Safe9 City", settings.EMAIL_HOST_USER, email, {"name": fname},
-            #              "email_templates/success.html")
-            # send_my_mail(f"New Message", settings.EMAIL_HOST_USER, settings.EMAIL_HOST_USER,
-            #              {"name": fname, "email": email, "message": message},
-            #              "email_templates/contact_success.html")
+            ContactUs.objects.create(listing=listing,listing_type=listing.listing_type,rent_period=listing.rent_period,full_name=fname, email=email, phone=phone, message=message)
             return redirect('listing_detail', listing.slug)
     else:
         form = ContactForm()
@@ -343,3 +338,27 @@ def contact_detail(request,id):
 
 def feedback(request):
     return render(request,"estate.feedbacks.html")
+
+def short_term_rents(request):
+    short_rents = Listings.objects.filter(rent_period="Short Term(1-6 months)")
+    paginator = Paginator(short_rents, 50)
+    page = request.GET.get('page')
+    short_rents = paginator.get_page(page)
+
+    context = {
+        "short_rents": short_rents
+    }
+
+    return render(request,"estate/short_rents.html",context)
+
+def long_term_rents(request):
+    long_rents = Listings.objects.filter(rent_period="Long Term(6 months to 1 year)")
+    paginator = Paginator(long_rents, 50)
+    page = request.GET.get('page')
+    long_rents = paginator.get_page(page)
+
+    context = {
+        "long_rents": long_rents
+    }
+
+    return render(request,"estate/long_rents.html",context)

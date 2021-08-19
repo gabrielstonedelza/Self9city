@@ -1,4 +1,5 @@
 {% load static %}
+
 <div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -26,41 +27,44 @@
 </div>
 
 <div id="mysidenav">
-  <div class="nav-container">
-    <div class="for-self-logo">
-      <img src="{% static 'estate/images/self-9.png'%}" alt="">
+  <div class="mynav-items-container">
+    <div class="nav-container">
+      <div class="for-self-logo">
+        <img src="{% static 'estate/images/self-9.png'%}" alt="">
+      </div>
+      <div class="self9-title">
+        <span>SELF9<span class="city">CITY</span>
+      </div>
+      <div class="show-nav-menu">
+        <i class="fas fa-bars"></i>
+      </div>
+      <div class="cancel-btn">
+        <i class="fas fa-times"></i>
+      </div>
     </div>
-    <div class="self9-title">
-      <span>SELF9<span class="city">CITY</span>
-    </div>
-    <div class="show-nav-menu">
-      <i class="fas fa-bars"></i>
+    <div class="navbar-menu-container">
+      <h4 class="text-center">SELF9CITY</h4>
+      <div class="mottor">Find your favorite home</div>
+      <ul>
+        {% if request.user.is_authenticated %}
+        <li title="go home"><a href="{% url 'my_index' %}">Home</a></li>
+        <li title="add new listing">
+          <a href="{% url 'create_listing' %}">
+            <i class="fas fa-plus-circle"></i> Listings
+          </a>
+        </li>
+        <li title="add to home listing gallery">
+          <a href="{% url 'add_to_gallery' %}">
+            <i class="fas fa-plus-circle"></i> Gallery
+          </a>
+        </li>
+        <li title="add to home listing gallery">
+          <a href="{% url 'contact-lists' %}">
+            <i class="fas fa-comment"></i> Contact Lists
+          </a>
+        </li>
+        {% endif %}
+      </ul>
     </div>
   </div>
-</div>
-
-<div id="navlinks-container">
-  <ul>
-    <div class="cancel-btn">
-      <i class="fas fa-times"></i>
-    </div>
-    {% if request.user.is_authenticated %}
-    <li title="go home"><a href="{% url 'my_index' %}">Home</a></li>
-    <li title="add new listing">
-      <a href="{% url 'create_listing' %}">
-        <i class="fas fa-plus-circle"></i> Listings
-      </a>
-    </li>
-    <li title="add to home listing gallery">
-      <a href="{% url 'add_to_gallery' %}">
-        <i class="fas fa-plus-circle"></i> Gallery
-      </a>
-    </li>
-    <li title="add to home listing gallery">
-      <a href="{% url 'contact-lists' %}">
-        <i class="fas fa-comment"></i> Contact Lists
-      </a>
-    </li>
-    {% endif %}
-  </ul>
 </div>

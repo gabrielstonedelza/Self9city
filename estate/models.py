@@ -68,6 +68,8 @@ class ListingGallery(models.Model):
 
 class ContactUs(models.Model):
     listing = models.ForeignKey(Listings, on_delete=models.CASCADE)
+    listing_type = models.CharField(max_length=200,blank=True)
+    rent_period = models.CharField(max_length=200,blank=True)
     full_name = models.CharField(max_length=150)
     email = models.EmailField(max_length=255)
     phone = models.CharField(max_length=20)

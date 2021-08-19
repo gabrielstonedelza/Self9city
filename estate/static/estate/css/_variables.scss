@@ -1,6 +1,5 @@
-$primary_color: #0c4b33;
-$secondary_color: #c9f0dd;
-$temporary_color: seagreen;
+$primary_color: #ffb727;
+$secondary_color: #ffdb27;
 $light: #fff;
 $dark: #d3d3d3;
 
@@ -20,7 +19,7 @@ body {
 
 .butt {
   cursor: pointer;
-  background-image: linear-gradient(to right, #f57803, #f5d020);
+  background-image: linear-gradient(to right, $primary_color, $secondary_color);
   text-decoration: none;
   font-weight: bold;
   color: white;
@@ -32,7 +31,7 @@ body {
   border: none;
   outline: none;
   &:hover {
-    background-image: linear-gradient(to right, #f5d020, #f57803);
+    background-image: linear-gradient(to right, $secondary_color, primary_color);
     color: white;
   }
   &:focus {

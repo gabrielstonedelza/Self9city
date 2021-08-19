@@ -7,7 +7,7 @@
 {% block content %}
 <br>
 <br>
-<h3 class="text-center mb-3">{{ listing.full_location|slice:"30"}}</h3>
+<h3 class="text-center mb-3 text-muted">{{ listing.full_location|slice:"30"}}</h3>
 <div class="container">
     <div class="row">
         <div class="col-xs-6 col-sm-6 col-md-8 mb-4 mr-auto">
@@ -17,7 +17,7 @@
             </a>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-4 ml-auto mb-4">
-            <h5>Contact for more information</h5>
+            <h5 class="text-muted">Contact for more information</h5>
             <form method="post">
                 {% csrf_token %}
                 <div class="form-control">
@@ -43,14 +43,15 @@
     </div>
     <hr class="my-4">
     <div class="row">
-        <div class="col-xs-6 col-sm-6 col-md-4 mr-auto mb-4">
+        <div class="col-xs-6 col-sm-6 col-md-6 mr-auto mb-4 text-muted">
+            <h6>{{ listing.listing_type }} {% if listing.rent_period %}({{ listing.rent_period }}) {% endif %}</h6>
             <span class="price">{{ listing.price }}</span> <span> <i class="fas fa-calculator"></i> EST.Payment $1,260 /
                 month</span><br>
             <span>{{ listing.rooms}} rooms</span> <span>{{ listing.baths }} bath</span>
             <span>{{ listing.size_of_building }}</span><br>
             <span>{{ listing.full_location }}</span>
         </div>
-        <div class="col-xs-6 col-sm-6 col-md-8 ml-auto mb-4">
+        <div class="col-xs-6 col-sm-6 col-md-6 ml-auto mb-4">
             <iframe width="100%" height="150" id="gmap_canvas"
                 src="https://maps.google.com/maps?q={{ listing.full_location}}&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"
                 scrolling="no" marginheight="0" marginwidth="0"></iframe>
@@ -58,13 +59,13 @@
     </div>
 </div>
 <div class="container listing_detail">
-    <div class="listing-description">
+    <div class="listing-description text-muted">
         <h5>Listing Description</h5>
         <p>{{ listing.description }}</p>
     </div>
     <hr>
     <br>
-    <h3>Other images for {{ listing.full_location }}</h3>
+    <h3 class="text-muted">Other images for {{ listing.full_location }}</h3>
     <div class="row">
         {% for image in listing_gallery %}
         <div class="col-xs-6 col-sm-6 col-md-4 mb-3">
