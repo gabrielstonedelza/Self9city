@@ -14,8 +14,8 @@ body {
 
 .butt {
   cursor: pointer;
-  background-image: -webkit-gradient(linear, left top, right top, from(#f57803), to(#f5d020));
-  background-image: linear-gradient(to right, #f57803, #f5d020);
+  background-image: -webkit-gradient(linear, left top, right top, from(#ffb727), to(#ffdb27));
+  background-image: linear-gradient(to right, #ffb727, #ffdb27);
   text-decoration: none;
   font-weight: bold;
   color: white;
@@ -29,8 +29,8 @@ body {
 }
 
 .butt:hover {
-  background-image: -webkit-gradient(linear, left top, right top, from(#f5d020), to(#f57803));
-  background-image: linear-gradient(to right, #f5d020, #f57803);
+  background-image: -webkit-gradient(linear, left top, right top, from(#ffdb27), to(primary_color));
+  background-image: linear-gradient(to right, #ffdb27, primary_color);
   color: white;
 }
 

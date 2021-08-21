@@ -306,6 +306,7 @@ def register_lease(request):
     context = {
         "form": form,
     }
+
     return render(request, "estate/leaseregister.html", context)
 
 
