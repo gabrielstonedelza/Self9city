@@ -81,7 +81,7 @@ def search(request):
     query = request.GET.get('q', None)
     if query is not None:
         search_listings = Listings.objects.filter(
-            Q(full_location__icontains=query)
+            Q(full_location__icontains=query) 
         )
 
     context = {

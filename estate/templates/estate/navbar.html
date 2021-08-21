@@ -1,31 +1,5 @@
 {% load static %}
 
-<div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">
-          <form method="GET" class="form-inline my-2 my-lg-0 ml-auto mr-auto" data-url="{% url 'search' %}"
-            id="search-form">
-            {% csrf_token %}
-            <input id="mysearch" class="form-control" type="search" placeholder="Search for homes" aria-label="Search"
-              name="q">
-          </form>
-        </h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body" style="overflow-y: scroll;">
-        <div id="results_section">
-          {% include "estate/search.html" %}
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
 <div id="mysidenav">
   <div class="mynav-items-container">
     <div class="nav-container">
@@ -58,10 +32,35 @@
         <li><a href="{% url 'lease' %}">Lease</a></li>
         <li><a href="{% url 'about' %}">About</a></li>
         <li class="">
-          <a title="Search" class="nav-link" href="#" data-toggle="modal" data-target="#basicExampleModal" style="padding: 0;"><i
-              class="fas fa-search"></i></a>
+          <a title="Search" class="nav-link" href="#" data-toggle="modal" data-target="#basicExampleModal"
+            style="padding: 0;"><i class="fas fa-search"></i></a>
         </li>
       </ul>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">
+          <form method="GET" class="form-inline my-2 my-lg-0 ml-auto mr-auto" data-url="{% url 'search' %}"
+            id="search-form">
+            {% csrf_token %}
+            <input id="mysearch" class="form-control" type="search" placeholder="Search for homes" aria-label="Search"
+              name="q">
+          </form>
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="overflow-y: scroll;">
+        <div id="results_section">
+          {% include "estate/search.html" %}
+        </div>
+      </div>
     </div>
   </div>
 </div>

@@ -1,39 +1,10 @@
 {% load static %}
 
-<div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">
-          <form method="GET" class="form-inline my-2 my-lg-0 ml-auto mr-auto" data-url="{% url 'search' %}"
-            id="search-form">
-            {% csrf_token %}
-            <input id="mysearch" class="form-control" type="search" placeholder="Search for homes" aria-label="Search"
-              name="q">
-          </form>
-        </h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body" style="overflow-y: scroll;">
-        <div id="results_section">
-          {% include "estate/search.html" %}
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
 <div id="mysidenav">
   <div class="mynav-items-container">
     <div class="nav-container">
       <div class="for-self-logo">
         <img src="{% static 'estate/images/self-9.png'%}" alt="">
-      </div>
-      <div class="self9-title">
-        <span>SELF9<span class="city">CITY</span>
       </div>
       <div class="show-nav-menu">
         <i class="fas fa-bars"></i>
@@ -43,8 +14,6 @@
       </div>
     </div>
     <div class="navbar-menu-container">
-      <h4 class="text-center">SELF9CITY</h4>
-      <div class="mottor">Find your favorite home</div>
       <ul>
         {% if request.user.is_authenticated %}
         <li title="go home"><a href="{% url 'my_index' %}">Home</a></li>
