@@ -22,7 +22,7 @@ Discover New Homes
     <div class="row mb-3">
         {% for list in all_listings %}
         <div class="col-xs-6 col-sm-6 col-md-4 mb-3">
-            <a href="{{ list.get_absolute_listing }}">
+            <a href="{{ list.get_absolute_url }}">
                 <div class="card">
                     <div class="view overlay">
                         <img class="card-img-top" src="{{ list.photo.url}}" alt="Card image cap"
